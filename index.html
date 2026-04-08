@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tackle | AI Visibility Report | Marketwake</title>
+    <style>
+        /* Font Faces */
+        @font-face {
+            font-family: 'Victor Serif';
+            src: url('assets/fonts/VictorSerif-40Regular.woff2') format('woff2'),
+                 url('assets/fonts/VictorSerif-40Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Victor Serif';
+            src: url('assets/fonts/VictorSerif-60Semibold.woff2') format('woff2'),
+                 url('assets/fonts/VictorSerif-60Semibold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Inter Tight';
+            src: url('assets/fonts/InterTight-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Inter Tight';
+            src: url('assets/fonts/InterTight-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Inter Tight';
+            src: url('assets/fonts/InterTight-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Inter Tight';
+            src: url('assets/fonts/InterTight-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Inter Tight';
+            src: url('assets/fonts/InterTight-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            src: url('assets/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            src: url('assets/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            src: url('assets/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* Brand Colors */
+        :root {
+            --black: #0C0C0C;
+            --off-white: #F0F1F2;
+            --neon-yellow: #EEFF25;
+            --neon-green: #CEFF58;
+            --muted-green: #B4C6BB;
+            --beige: #EAE8E1;
+            --blue: #0038FF;
+            --white: #F9F9F9;
+            --orange: #FF5E30;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter Tight', -apple-system, sans-serif;
+            background: var(--black);
+            color: var(--off-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .pre-header {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--neon-yellow);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Victor Serif', Georgia, serif;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            font-family: 'Inter Tight', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(238,255,37,0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 30%, rgba(0,56,255,0.04) 0%, transparent 50%);
+            animation: subtleShift 20s ease-in-out infinite;
+        }
+
+        @keyframes subtleShift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-2%, 2%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero .logo {
+            width: 200px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero .pre-header {
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--neon-yellow);
+        }
+
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: rgba(240,241,242,0.7);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: rgba(240,241,242,0.5);
+            font-weight: 400;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header .pre-header {
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            opacity: 0.7;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: rgba(240,241,242,0.04);
+            border: 1px solid rgba(240,241,242,0.08);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--neon-yellow);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(238,255,37,0.08);
+        }
+
+        .stat-card .number {
+            font-family: 'Victor Serif', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--neon-yellow);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Platform Cards */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .platform-card {
+            background: rgba(240,241,242,0.03);
+            border: 1px solid rgba(240,241,242,0.06);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card:hover {
+            border-color: rgba(238,255,37,0.3);
+        }
+
+        .platform-card .platform-name {
+            font-family: 'Inter Tight', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .platform-card .platform-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .platform-card .platform-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .platform-card .stat-mini {
+            text-align: center;
+        }
+
+        .platform-card .stat-mini .val {
+            font-family: 'Victor Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--neon-yellow);
+        }
+
+        .platform-card .stat-mini .lbl {
+            font-size: 0.7rem;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bar-container {
+            height: 4px;
+            background: rgba(240,241,242,0.08);
+            border-radius: 4px;
+            margin-top: 16px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--neon-yellow), var(--neon-green));
+            transition: width 1s ease;
+        }
+
+        /* Metric Definitions */
+        .metric-defs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+            padding: 24px;
+            background: rgba(240,241,242,0.03);
+            border: 1px solid rgba(240,241,242,0.06);
+            border-radius: 14px;
+        }
+
+        .metric-def {
+            padding: 12px;
+        }
+
+        .metric-def .md-term {
+            font-family: 'Inter Tight', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--neon-yellow);
+            margin-bottom: 4px;
+        }
+
+        .metric-def .md-desc {
+            font-size: 0.75rem;
+            opacity: 0.55;
+            line-height: 1.5;
+        }
+
+        /* Blog Content Section */
+        .blog-hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .blog-hero-stat {
+            background: linear-gradient(135deg, rgba(238,255,37,0.06), rgba(206,255,88,0.03));
+            border: 1px solid rgba(238,255,37,0.1);
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .blog-hero-stat .bhs-num {
+            font-family: 'Victor Serif', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--neon-yellow);
+            line-height: 1;
+        }
+
+        .blog-hero-stat .bhs-label {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mw-blog-item {
+            background: rgba(240,241,242,0.03);
+            border: 1px solid rgba(240,241,242,0.06);
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
+            align-items: start;
+            transition: all 0.3s ease;
+        }
+
+        .mw-blog-item:hover {
+            border-color: rgba(238,255,37,0.2);
+            background: rgba(240,241,242,0.05);
+        }
+
+        .mw-blog-item .mw-rank {
+            background: var(--neon-yellow);
+            color: var(--black);
+            font-family: 'Victor Serif', serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .mw-blog-item .mw-blog-info h5 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .mw-blog-item .mw-blog-info .mw-prompts-list {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            margin-top: 8px;
+        }
+
+        .mw-blog-item .mw-blog-info .mw-prompts-list span {
+            display: block;
+            padding: 2px 0;
+        }
+
+        .mw-blog-item .mw-blog-info .mw-prompts-list span::before {
+            content: '\2192 ';
+            color: var(--neon-yellow);
+        }
+
+        .mw-blog-item .mw-blog-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+        }
+
+        .mw-blog-item .mw-score {
+            font-family: 'Victor Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--neon-yellow);
+            line-height: 1;
+        }
+
+        .mw-blog-item .mw-platforms-pills {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .mw-blog-item .mw-plat-pill {
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: rgba(240,241,242,0.06);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.5;
+        }
+
+        .mw-callout-box {
+            background: var(--neon-yellow);
+            color: var(--black);
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin-top: 40px;
+        }
+
+        .mw-callout-box h4 {
+            font-family: 'Victor Serif', serif;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .mw-callout-box p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        /* Top Pages Section */
+        .citation-source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .citation-source-card {
+            background: rgba(240,241,242,0.03);
+            border: 1px solid rgba(240,241,242,0.06);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .citation-source-card:hover {
+            border-color: rgba(238,255,37,0.2);
+        }
+
+        .citation-source-card h5 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .citation-source-card .cs-url {
+            font-size: 0.7rem;
+            opacity: 0.3;
+            word-break: break-all;
+            margin-bottom: 12px;
+        }
+
+        .citation-source-card .cs-stats {
+            display: flex;
+            gap: 16px;
+        }
+
+        .citation-source-card .cs-stat .csv {
+            font-family: 'Victor Serif', serif;
+            font-weight: 600;
+            color: var(--neon-yellow);
+        }
+
+        .citation-source-card .cs-stat .csl {
+            font-size: 0.65rem;
+            opacity: 0.4;
+            text-transform: uppercase;
+        }
+
+        /* Copy Wins */
+        .wins-bar {
+            background: var(--black);
+            color: var(--off-white);
+            padding: 48px 40px;
+            border-top: 1px solid rgba(240,241,242,0.08);
+            border-bottom: 1px solid rgba(240,241,242,0.08);
+        }
+
+        .wins-bar .wins-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .wins-bar h3 {
+            font-family: 'Victor Serif', serif;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .wins-bar .wins-sub {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 24px;
+        }
+
+        .win-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            background: rgba(240,241,242,0.04);
+            border: 1px solid rgba(240,241,242,0.08);
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .win-item:hover {
+            background: rgba(240,241,242,0.08);
+        }
+
+        .win-item .win-text {
+            flex: 1;
+        }
+
+        .copy-btn {
+            background: var(--off-white);
+            color: var(--black);
+            border: none;
+            border-radius: 6px;
+            padding: 6px 14px;
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: rgba(12,12,12,0.8);
+        }
+
+        .copy-btn.copied {
+            background: #1a7f64;
+            color: white;
+        }
+
+        /* Accent divider */
+        .accent-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-yellow), transparent);
+            opacity: 0.3;
+        }
+
+        /* Summary callout */
+        .summary-callout {
+            background: linear-gradient(135deg, rgba(0,56,255,0.08), rgba(238,255,37,0.05));
+            border: 1px solid rgba(0,56,255,0.15);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .summary-callout h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .summary-callout ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-callout li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .summary-callout li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-yellow);
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(240,241,242,0.06);
+        }
+
+        .footer .logo {
+            width: 140px;
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            opacity: 0.4;
+        }
+
+        /* Scroll animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section { padding: 60px 24px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-meta { flex-direction: column; gap: 8px; }
+            .mw-blog-item {
+                grid-template-columns: auto 1fr;
+            }
+            .mw-blog-item .mw-blog-right {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <img src="assets/images/MTWK_PrimaryLogo_White.png" alt="Marketwake" class="logo">
+        <p class="pre-header">AI Visibility Report</p>
+        <h1>Tackle<br><span>AI Search Performance</span></h1>
+        <p class="subtitle">When decision-makers ask AI platforms about cloud marketplace solutions, is Tackle showing up? Here's the data.</p>
+        <div class="hero-meta">
+            <span>Jan 12 - Apr 6, 2026</span>
+            <span>8 AI Platforms Tracked</span>
+            <span>60 Prompts Monitored</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- TLDR + Quick Wins -->
+<div class="wins-bar">
+    <div class="wins-inner">
+        <h3>The Big Picture</h3>
+        <p class="wins-sub">Tackle is being recommended by AI platforms when buyers search for cloud marketplace solutions. Here are the highlights. Click any to copy and share.</p>
+        <div class="win-item">
+            <span class="win-text">Tackle appears in 100% of tracked AI search queries (60 out of 60) across 6 citation platforms, with 283 unique tackle.io URLs being cited by AI engines.</span>
+            <button class="copy-btn" onclick="copyWin(this)">Copy</button>
+        </div>
+        <div class="win-item">
+            <span class="win-text">Google AI Mode is Tackle's strongest platform with an 88.3% brand citation rate, meaning nearly 9 out of 10 relevant queries link directly to tackle.io.</span>
+            <button class="copy-btn" onclick="copyWin(this)">Copy</button>
+        </div>
+        <div class="win-item">
+            <span class="win-text">Tackle's top two pages (Cloud Marketplaces and Tackle Platform) have a combined citation score of 176.56 across all 6 AI platforms and 54 unique prompts.</span>
+            <button class="copy-btn" onclick="copyWin(this)">Copy</button>
+        </div>
+        <div class="win-item">
+            <span class="win-text">Tackle's blog content is cited across 6 AI platforms, with the Google Cloud Marketplace Seller Guide appearing in 33 different search queries.</span>
+            <button class="copy-btn" onclick="copyWin(this)">Copy</button>
+        </div>
+    </div>
+</div>
+
+<div class="accent-divider"></div>
+
+<!-- What is AI Search -->
+<section class="section fade-up">
+    <div class="section-header">
+        <p class="pre-header">How It Works</p>
+        <h2>What is AI Search Visibility?</h2>
+    </div>
+    <p style="font-size: 0.95rem; opacity: 0.7; max-width: 800px; margin-bottom: 32px;">More buyers are using AI tools to research cloud marketplace platforms, compare solutions, and get recommendations. When someone asks "What's the best platform for selling through AWS Marketplace?", the AI generates an answer and may mention Tackle by name or link to tackle.io. This report tracks how often Tackle is being mentioned and cited across 8 major AI platforms.</p>
+
+    <div class="metric-defs fade-up">
+        <div class="metric-def">
+            <div class="md-term">Brand Presence</div>
+            <div class="md-desc">The AI mentioned Tackle by name in its answer, signaling awareness and authority.</div>
+        </div>
+        <div class="metric-def">
+            <div class="md-term">Brand Citation</div>
+            <div class="md-desc">The AI linked to tackle.io as a source, sending users directly to the site.</div>
+        </div>
+        <div class="metric-def">
+            <div class="md-term">Citation Rate</div>
+            <div class="md-desc">How often the AI links to tackle.io when answering relevant questions. Higher = more consistent visibility.</div>
+        </div>
+        <div class="metric-def">
+            <div class="md-term">Sentiment</div>
+            <div class="md-desc">Whether the AI presented Tackle positively, neutrally, or negatively when mentioned.</div>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card fade-up">
+            <div class="number">60</div>
+            <div class="label">Prompts Tracked</div>
+        </div>
+        <div class="stat-card fade-up">
+            <div class="number">283</div>
+            <div class="label">Unique URLs Cited</div>
+        </div>
+        <div class="stat-card fade-up">
+            <div class="number">8</div>
+            <div class="label">AI Platforms Tracked</div>
+        </div>
+        <div class="stat-card fade-up">
+            <div class="number">52.1%</div>
+            <div class="label">Avg Brand Presence</div>
+        </div>
+    </div>
+</section>
+
+<div class="accent-divider"></div>
+
+<!-- Top Platforms -->
+<section class="section fade-up">
+    <div class="section-header">
+        <p class="pre-header">Platform Performance</p>
+        <h2>Where You're Showing Up</h2>
+        <p>Tackle's visibility across AI platforms that cite sources. Platforms are ranked by brand citation rate.</p>
+    </div>
+
+    <div class="platform-grid">
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #4285F4; color: white;">G</div>
+                Google AI Mode
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">#1 platform for brand citations</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">88.3%</div><div class="lbl">Citation Rate</div></div>
+                <div class="stat-mini"><div class="val">83.3%</div><div class="lbl">Brand Presence</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 100%;"></div></div>
+        </div>
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #4285F4; color: white;">A</div>
+                Google AI Overviews
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">Strong presence in search summaries</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">69.6%</div><div class="lbl">Citation Rate</div></div>
+                <div class="stat-mini"><div class="val">63.0%</div><div class="lbl">Brand Presence</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 79%;"></div></div>
+        </div>
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #1A7F64; color: white;">P</div>
+                Perplexity
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">Cited in 23 unique prompts</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">43.4%</div><div class="lbl">Citation Rate</div></div>
+                <div class="stat-mini"><div class="val">15.1%</div><div class="lbl">Brand Presence</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 49%;"></div></div>
+        </div>
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #E8710A; color: white;">G</div>
+                Google Gemini
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">High brand presence + citations</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">35.3%</div><div class="lbl">Citation Rate</div></div>
+                <div class="stat-mini"><div class="val">84.5%</div><div class="lbl">Brand Presence</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 40%;"></div></div>
+        </div>
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #10A37F; color: white;">C</div>
+                ChatGPT
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">Growing citation presence</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">19.3%</div><div class="lbl">Citation Rate</div></div>
+                <div class="stat-mini"><div class="val">15.8%</div><div class="lbl">Brand Presence</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 22%;"></div></div>
+        </div>
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #7B61FF; color: white;">C</div>
+                Microsoft Copilot
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">Consistent link-backs to tackle.io</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">13.8%</div><div class="lbl">Citation Rate</div></div>
+                <div class="stat-mini"><div class="val">29.3%</div><div class="lbl">Brand Presence</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 16%;"></div></div>
+        </div>
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #D4A574; color: white;">C</div>
+                Claude
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">Mentions only (no citations)</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">85.0%</div><div class="lbl">Brand Presence</div></div>
+                <div class="stat-mini"><div class="val">N/A</div><div class="lbl">Citations</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 85%; background: linear-gradient(90deg, rgba(238,255,37,0.4), rgba(206,255,88,0.3));"></div></div>
+        </div>
+        <div class="platform-card fade-up">
+            <div class="platform-name">
+                <div class="platform-icon" style="background: #0668E1; color: white;">M</div>
+                Meta AI
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 2px;">Mentions only (no citations)</div>
+            <div class="platform-stats">
+                <div class="stat-mini"><div class="val">32.6%</div><div class="lbl">Brand Presence</div></div>
+                <div class="stat-mini"><div class="val">N/A</div><div class="lbl">Citations</div></div>
+            </div>
+            <div class="bar-container"><div class="bar-fill" style="width: 33%; background: linear-gradient(90deg, rgba(238,255,37,0.4), rgba(206,255,88,0.3));"></div></div>
+        </div>
+    </div>
+</section>
+
+<div class="accent-divider"></div>
+
+<!-- Top Cited Pages -->
+<section class="section fade-up">
+    <div class="section-header">
+        <p class="pre-header">Top Performing Pages</p>
+        <h2>Most Cited tackle.io Pages</h2>
+        <p>These pages drive the most AI citations across all platforms.</p>
+    </div>
+
+    <div class="citation-source-grid fade-up">
+        <div class="citation-source-card">
+            <h5>Cloud Marketplaces</h5>
+            <div class="cs-url">tackle.io/cloud-marketplaces</div>
+            <div class="cs-stats">
+                <div class="cs-stat"><div class="csv">91.82</div><div class="csl">Citation Score</div></div>
+                <div class="cs-stat"><div class="csv">6</div><div class="csl">Platforms</div></div>
+                <div class="cs-stat"><div class="csv">46</div><div class="csl">Prompts</div></div>
+            </div>
+        </div>
+        <div class="citation-source-card">
+            <h5>Tackle Platform</h5>
+            <div class="cs-url">tackle.io/tackle-platform</div>
+            <div class="cs-stats">
+                <div class="cs-stat"><div class="csv">84.74</div><div class="csl">Citation Score</div></div>
+                <div class="cs-stat"><div class="csv">6</div><div class="csl">Platforms</div></div>
+                <div class="cs-stat"><div class="csv">54</div><div class="csl">Prompts</div></div>
+            </div>
+        </div>
+        <div class="citation-source-card">
+            <h5>Cloud Marketplace Playbook</h5>
+            <div class="cs-url">tackle.io/resources/report/cloud-marketplace-playbook</div>
+            <div class="cs-stats">
+                <div class="cs-stat"><div class="csv">47.16</div><div class="csl">Citation Score</div></div>
+                <div class="cs-stat"><div class="csv">6</div><div class="csl">Platforms</div></div>
+                <div class="cs-stat"><div class="csv">49</div><div class="csl">Prompts</div></div>
+            </div>
+        </div>
+        <div class="citation-source-card">
+            <h5>AWS Marketplace</h5>
+            <div class="cs-url">tackle.io/cloud-marketplaces/aws</div>
+            <div class="cs-stats">
+                <div class="cs-stat"><div class="csv">35.54</div><div class="csl">Citation Score</div></div>
+                <div class="cs-stat"><div class="csv">6</div><div class="csl">Platforms</div></div>
+                <div class="cs-stat"><div class="csv">49</div><div class="csl">Prompts</div></div>
+            </div>
+        </div>
+        <div class="citation-source-card">
+            <h5>Salesforce Integration</h5>
+            <div class="cs-url">tackle.io/tackle-platform/salesforce-integration</div>
+            <div class="cs-stats">
+                <div class="cs-stat"><div class="csv">30.24</div><div class="csl">Citation Score</div></div>
+                <div class="cs-stat"><div class="csv">6</div><div class="csl">Platforms</div></div>
+                <div class="cs-stat"><div class="csv">12</div><div class="csl">Prompts</div></div>
+            </div>
+        </div>
+        <div class="citation-source-card">
+            <h5>Google Cloud Marketplace</h5>
+            <div class="cs-url">tackle.io/google</div>
+            <div class="cs-stats">
+                <div class="cs-stat"><div class="csv">27.14</div><div class="csl">Citation Score</div></div>
+                <div class="cs-stat"><div class="csv">6</div><div class="csl">Platforms</div></div>
+                <div class="cs-stat"><div class="csv">33</div><div class="csl">Prompts</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="accent-divider"></div>
+
+<!-- Blog Content -->
+<section class="section fade-up">
+    <div class="section-header">
+        <p class="pre-header">Content Performance</p>
+        <h2>Blog Content Being Recommended by AI</h2>
+    </div>
+
+    <div class="blog-hero-stats fade-up">
+        <div class="blog-hero-stat">
+            <div class="bhs-num">18.1%</div>
+            <div class="bhs-label">of All Brand Citations from Blogs</div>
+        </div>
+        <div class="blog-hero-stat">
+            <div class="bhs-num">6</div>
+            <div class="bhs-label">Platforms Citing Blog Content</div>
+        </div>
+        <div class="blog-hero-stat">
+            <div class="bhs-num">33</div>
+            <div class="bhs-label">Unique Prompts Trigger Blog Cites</div>
+        </div>
+    </div>
+
+    <div class="mw-blog-item fade-up" style="border-left: 3px solid var(--neon-yellow);">
+        <div class="mw-rank">1</div>
+        <div class="mw-blog-info">
+            <h5>You've Inherited a Cloud Marketplace Listing. Now What?</h5>
+            <div style="margin-top: 6px; font-size: 0.85rem; opacity: 0.7;">Cited on <strong style="color: var(--neon-yellow);">5 AI platforms</strong> across <strong style="color: var(--neon-yellow);">22 different search queries</strong>. The top-performing blog for capturing marketplace onboarding questions.</div>
+        </div>
+        <div class="mw-blog-right">
+            <div class="mw-score">15.54</div>
+            <div class="mw-platforms-pills">
+                <span class="mw-plat-pill">5 Platforms</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mw-blog-item fade-up" style="border-left: 3px solid var(--neon-yellow);">
+        <div class="mw-rank">2</div>
+        <div class="mw-blog-info">
+            <h5>Tackle's Google Cloud Marketplace Seller Guide</h5>
+            <div style="margin-top: 6px; font-size: 0.85rem; opacity: 0.7;">Cited on <strong style="color: var(--neon-yellow);">all 6 AI platforms</strong> and triggered by <strong style="color: var(--neon-yellow);">33 unique queries</strong>. The widest-reaching blog in Tackle's content library.</div>
+        </div>
+        <div class="mw-blog-right">
+            <div class="mw-score">14.84</div>
+            <div class="mw-platforms-pills">
+                <span class="mw-plat-pill">All 6 Platforms</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mw-blog-item fade-up" style="border-left: 3px solid var(--neon-yellow);">
+        <div class="mw-rank">3</div>
+        <div class="mw-blog-info">
+            <h5>Leveraging Committed Spend on Cloud Marketplaces</h5>
+            <div style="margin-top: 6px; font-size: 0.85rem; opacity: 0.7;">Cited on <strong style="color: var(--neon-yellow);">4 platforms</strong>. Captures high-intent queries about budget drawdown and committed spend strategies.</div>
+        </div>
+        <div class="mw-blog-right">
+            <div class="mw-score">7.09</div>
+            <div class="mw-platforms-pills">
+                <span class="mw-plat-pill">4 Platforms</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mw-blog-item fade-up" style="border-left: 3px solid var(--neon-green);">
+        <div class="mw-rank">4</div>
+        <div class="mw-blog-info">
+            <h5>Marketplace KPIs</h5>
+            <div style="margin-top: 6px; font-size: 0.85rem; opacity: 0.7;">Cited on <strong style="color: var(--neon-yellow);">all 6 platforms</strong>. A focused piece that owns the "how to measure marketplace success" conversation in AI search.</div>
+        </div>
+        <div class="mw-blog-right">
+            <div class="mw-score">6.71</div>
+            <div class="mw-platforms-pills">
+                <span class="mw-plat-pill">All 6 Platforms</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mw-blog-item fade-up" style="border-left: 3px solid var(--neon-green);">
+        <div class="mw-rank">5</div>
+        <div class="mw-blog-info">
+            <h5>AWS Marketplace Seller Guide</h5>
+            <div style="margin-top: 6px; font-size: 0.85rem; opacity: 0.7;">Cited on <strong style="color: var(--neon-yellow);">5 platforms</strong> across <strong style="color: var(--neon-yellow);">20 prompts</strong>. A comprehensive guide that captures AWS-specific marketplace queries.</div>
+        </div>
+        <div class="mw-blog-right">
+            <div class="mw-score">6.38</div>
+            <div class="mw-platforms-pills">
+                <span class="mw-plat-pill">5 Platforms</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mw-callout-box fade-up">
+        <h4>Why This Matters</h4>
+        <p>Tackle's blog content is being pulled into AI-generated answers across all major platforms. The Google Cloud Marketplace Seller Guide alone appears in 33 different search queries, making Tackle the go-to source when AI tools need to explain cloud marketplace selling. This content isn't just ranking in traditional search; it's actively shaping how AI recommends cloud GTM solutions.</p>
+    </div>
+</section>
+
+<div class="accent-divider"></div>
+
+<!-- Key Insights -->
+<section class="section fade-up">
+    <div class="section-header">
+        <p class="pre-header">Strategic Insights</p>
+        <h2>What the Data Tells Us</h2>
+    </div>
+
+    <div class="summary-callout fade-up">
+        <h3>Key Takeaways</h3>
+        <ul>
+            <li>Tackle is cited in 100% of tracked prompts (60/60), meaning every cloud marketplace question AI tools answer includes a link back to tackle.io.</li>
+            <li>Google's AI products (AI Mode, AI Overviews, Gemini) are Tackle's strongest channels, with AI Mode alone achieving an 88.3% brand citation rate.</li>
+            <li>The /cloud-marketplaces and /tackle-platform pages are the two highest-cited URLs, combining for a 176.56 citation score across all platforms.</li>
+            <li>Claude and Meta AI mention Tackle by name (85% and 32.6% presence) but don't provide source citations, representing untapped link-back potential.</li>
+            <li>Blog content accounts for 18.1% of all brand citations, with seller guides and marketplace playbooks driving the highest engagement across AI search.</li>
+            <li>Tackle's brand presence is growing week-over-week, with latest-week presence at 52.1% across all platforms, up from earlier weeks in the tracking period.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <img src="assets/images/MTWK_PrimaryLogo_White.png" alt="Marketwake" class="logo">
+    <p>Prepared by Marketwake | Performance Marketing & Creative Services</p>
+    <p style="margin-top: 8px;">Data sourced from Scrunch AI | Reporting period: Jan 12 - Apr 6, 2026</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    function copyWin(btn) {
+        const text = btn.parentElement.querySelector('.win-text').textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
